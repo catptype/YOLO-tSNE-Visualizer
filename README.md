@@ -23,7 +23,6 @@ This tool extracts deep feature vectors from your images, projects them into 2D 
 ```text
 .
 ├── util/
-│   ├── __init__.py
 │   └── YoloFeatureExtractor.py   # Core logic engine
 │
 ├── 1_inspect_model.py            # Step 1: Find the right layer
