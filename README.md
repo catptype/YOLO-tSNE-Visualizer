@@ -13,7 +13,7 @@ This tool extracts deep feature vectors from your images, projects them into 2D 
 *   **Universal Support:** Works with **YOLOv8, YOLOv11, YOLOv12** (Detect, Classify, Pose, Segment, OBB).
 *   **Smart Inspection:** Automatically identifies the best layers to hook for feature extraction.
 *   **Robust Caching:** Supports massive datasets (100k+ images). If interrupted, it **resumes exactly where it left off**.
-*   **Ghost Mode Visualization:** A specialized plotting mode that makes clean data transparent and highlights potential errors in bright red/colors.
+*   **Ghost Mode Visualization:** A specialized plotting mode that makes clean data transparent and highlights potential errors.
 *   **Actionable Reports:** Generates a CSV list of mislabeled images to fix.
 
 ---
