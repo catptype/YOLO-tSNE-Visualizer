@@ -1,113 +1,132 @@
-# YOLOv11-tSNE-Visualizer
+# 🕵️ YOLO Dataset Auditor & t-SNE Visualizer
 
-A visualizer for t-SNE analysis of features extracted from a YOLOv11 model. This project supports extracting features from the YOLOv11 model at the **softmax layer** or **raw logits** using hooks and visualizing the features using **t-SNE**.
+A powerful toolkit to visualize dataset clusters and automatically detect labeling errors using **Ultralytics YOLO** models (v8, v11, v12).
 
-![Scatter Plot Example](<result/t-SNE Scatter.jpg>)
-
----
-
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Customizing Colormap](#customizing-colormap)
-6. [License](#license)
+This tool extracts deep feature vectors from your images, projects them into 2D space using t-SNE, and uses **k-Nearest Neighbors (k-NN)** to identify "Suspicious" data points (e.g., a "Cat" image sitting deep inside a "Dog" cluster).
 
 ---
 
-## Introduction
+## 🌟 Key Features
 
-YOLOv11-tSNE-Visualizer is a Python-based tool designed to help you analyze high-dimensional feature spaces extracted from YOLOv11 models. By visualizing features using t-SNE, it provides an intuitive way to understand the clustering of data points corresponding to different classes.
-
----
-
-## Features
-
-- **Feature Extraction**: Extract features at the softmax layer or raw logits using hooks.
-- **t-SNE Visualization**: Dimensionality reduction for visualizing high-dimensional data.
-- **Customizable Colormap**: Choose from various colormaps to tailor your scatter plots.
-- **High-Quality Exports**: Save your scatter plots as high-resolution JPEG images with scatter point data stored in a text file.
-- **Cluster Comparison**: Compare clusters by pairing or grouping classes.
+*   **Universal Support:** Works with **YOLOv8, YOLOv11, YOLOv12** (Detect, Classify, Pose, Segment, OBB).
+*   **Smart Inspection:** Automatically identifies the best layers to hook for feature extraction.
+*   **Robust Caching:** Supports massive datasets (100k+ images). If interrupted, it **resumes exactly where it left off**.
+*   **Ghost Mode Visualization:** A specialized plotting mode that makes clean data transparent and highlights potential errors in bright red/colors.
+*   **Actionable Reports:** Generates a CSV list of mislabeled images to fix.
 
 ---
 
-## Installation
+## 📂 Project Structure
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/catptype/YOLOv11-tSNE-Visualizer.git
-   cd YOLOv11-tSNE-Visualizer
-   ```
-
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Verify your Python environment supports the necessary libraries such as `YOLO`, `torch`, `matplotlib`, `numpy`, and `scikit-learn`.
-
----
-
-## Usage
-
-1. **Prepare your dataset**:
-   Ensure your directory structure follows this format:
-   ```
-   root/
-   ├── class1/
-   │   ├── image1.jpg
-   │   ├── image2.jpg
-   ├── class2/
-   │   ├── image3.jpg
-   │   ├── image4.jpg
-   ```
-
-2. **Run the visualizer**:
-   Import the `Yolo11Visualizer` class and pass the paths of your images to visualize t-SNE scatter plots.
-
-   ```python
-   from util.Yolo11Visualizer import Yolo11Visualizer
-
-   # Initialize the visualizer with your YOLOv11 model
-   visualizer = Yolo11Visualizer("path/to/your/yolov11/model.pt")
-
-   # Visualize using raw logits
-   visualizer.calculate_tsne(image_paths=["path/to/image1.jpg", "path/to/image2.jpg"], perplexity=30, logit=True, worker=8)
-
-   # Visualize using softmax features
-   visualizer.calculate_tsne(image_paths=["path/to/image1.jpg", "path/to/image2.jpg"], perplexity=30, logit=False, worker=8)
-   ```
-   > `worker` is number of worker (or thread) for processing
-
-3. **Scatter plot output**:
-   The full scatter plot will be displayed and saved as a JPEG file (`t-SNE Scatter.jpg`) in the `result` directory.
-   The comparison scatter plot will be saved in `compare` directory.
+```text
+.
+├── util/
+│   ├── __init__.py
+│   └── YoloFeatureExtractor.py   # Core logic engine
+│
+├── 1_inspect_model.py            # Step 1: Find the right layer
+├── 2_generate_tsne.py            # Step 2: Extract features & t-SNE
+├── 3_view_plot.py                # Step 3: Interactive Scatter Plot
+├── 4_analyze_errors.py           # Step 4: AI Conflict Detection
+│
+├── models/                       # Place your .pt files here
+├── DATASET/                      # Place your images here
+└── requirements.txt
+```
 
 ---
 
-## Customizing Colormap
+## 🚀 Installation
 
-You can customize the colormap used for the scatter plot by specifying a colormap name. Colormap names must match those available in `matplotlib.colormaps`. The default colormap is `rainbow`.
+1.  **Clone the repository** (or download the files).
+2.  **Install dependencies:**
 
-### Available Colormaps
+```bash
+pip install ultralytics scikit-learn pandas plotly tqdm
+```
 
-You can use any of the colormaps supported by `matplotlib`. Below are some examples:
+*(Note: GPU is recommended for Step 2, but CPU works fine for smaller datasets.)*
 
-- `rainbow` (default): A colorful gradient that works well for distinguishing classes.
-- `viridis`: A perceptually uniform colormap suitable for scientific data.
-- `plasma`: A smooth gradient with warm colors.
-- `cool`: A blue-to-pink gradient.
-- `spring`: A gradient with pink and yellow hues.
-- `summer`: A green-to-yellow gradient.
-- `autumn`: A gradient with warm orange and yellow tones.
+---
 
-For the full list of colormaps, refer to the official [matplotlib documentation](https://matplotlib.org/stable/tutorials/colors/colormaps.html).
+## 📖 Usage Workflow
+
+Follow these 4 steps to clean your dataset.
+
+### Step 1: Inspect Your Model
+Different YOLO versions have different architectures. Run this to find the layer names.
+
+1.  Open `1_inspect_model.py`.
+2.  Set your `MODEL_PATH`.
+3.  Run:
+    ```bash
+    python 1_inspect_model.py
+    ```
+4.  **Action:** Copy the recommended **Layer Name** from the output (e.g., `model.model.22` or `model.model.10.linear`).
+
+### Step 2: Generate Data (The Heavy Lifting)
+This extracts features from all images and calculates t-SNE coordinates.
+
+1.  Open `2_generate_tsne.py`.
+2.  Configure the settings at the top:
+    ```python
+    MODEL_PATH   = "models/yolo11s.pt"
+    DATA_DIR     = "./DATASET/my_images"
+    TARGET_LAYER = "model.model.22"  # Paste layer from Step 1
+    ```
+3.  Run:
+    ```bash
+    python 2_generate_data.py
+    ```
+    *   *Result:* Creates a `.json` file in `tsne_results/`.
+    *   *Note:* You can stop this script (Ctrl+C) anytime. It will resume automatically next time.
+
+### Step 3: View Clusters
+Check the general health of your dataset.
+
+1.  Open `3_view_plot.py`.
+2.  Set `JSON_FILE` to the file created in Step 2.
+3.  Run:
+    ```bash
+    python 3_view_plot.py
+    ```
+    *   *Result:* Opens an interactive HTML plot in your browser.
+
+### Step 4: Analyze Errors (Ghost Mode)
+Find the wrong labels. This uses k-NN to find images surrounded by the wrong class.
+
+1.  Open `4_analyze_errors.py`.
+2.  Set `JSON_FILE` to the file created in Step 2.
+3.  Run:
+    ```bash
+    python 4_analyze_errors.py
+    ```
+    *   *Result A:* Opens **`_focus_map.html`**. Suspicous points are **Solid Diamonds**; Clean points are **Faint Circles**.
+    *   *Result B:* Saves **`_fix_list.csv`**. A prioritized list of files to fix.
+
+---
+
+## 🛠️ Configuration & Tips
+
+*   **Handling Large Datasets (100k+ images):**
+    *   Step 2 is safe to interrupt. It caches progress in the `cache/` folder.
+    *   If you *retrain* your model, **rename the model file** (e.g., `v1.pt` -> `v2.pt`) to force the script to ignore the old cache.
+*   **Perplexity:**
+    *   In `2_generate_data.py`, set `PERPLEXITY = 30` (default).
+    *   For huge datasets, you can try `50`.
+
+---
+
+## 📊 Output Explanation
+
+*   **`_focus_map.html`**: The best tool for visual inspection.
+    *   **Double-click** a class in the legend to isolate it.
+    *   **Hover** over a Diamond to see: *"Class: Cat, Likely: Dog"*.
+*   **`_fix_list.csv`**:
+    *   Sort by `conflict_score`. A score of `1.0` means 100% of neighbors disagree with the current label (High probability of error).
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
+MIT License. Feel free to modify and use for your own projects!
