@@ -1,5 +1,7 @@
 # 🕵️ YOLO Dataset Auditor & t-SNE Visualizer
 
+![alt text](docs/images/screenshot.png)
+
 A powerful toolkit to visualize dataset clusters and automatically detect labeling errors using **Ultralytics YOLO** models (v8, v11, v12).
 
 This tool extracts deep feature vectors from your images, projects them into 2D space using t-SNE, and uses **k-Nearest Neighbors (k-NN)** to identify "Suspicious" data points (e.g., a "Cat" image sitting deep inside a "Dog" cluster).
