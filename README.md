@@ -142,7 +142,7 @@ Find the wrong labels. This uses k-NN to find images surrounded by the wrong cla
     *   Step 2 is safe to interrupt. It caches progress in the `cache/` folder.
     *   If you *retrain* your model, **rename the model file** (e.g., `v1.pt` -> `v2.pt`) to force the script to ignore the old cache.
 *   **Perplexity:**
-    *   In `2_generate_data.py`, set `PERPLEXITY = 30` (default).
+    *   In `2_generate_tsne.py`, set `PERPLEXITY = 30` (default).
     *   For huge datasets, you can try `50`.
 
 ---
