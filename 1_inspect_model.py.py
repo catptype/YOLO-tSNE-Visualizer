@@ -17,7 +17,7 @@ def main():
     extractor = YoloFeatureExtractor(model_path=MODEL_PATH)
     extractor.inspect_layers()
     
-    print("\nCopy the 'Layer' name of your choice (e.g., model.model.22) into yolo_tsne.py")
+    print("\nCopy the 'Layer' name of your choice (e.g., model.model.22) into 2_generate_tsne.py")
 
 if __name__ == "__main__":
     main()
