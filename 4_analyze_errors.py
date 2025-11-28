@@ -6,7 +6,7 @@ from sklearn.neighbors import NearestNeighbors
 from collections import Counter
 
 # --- CONFIGURATION ---
-JSON_FILE = r"tsne_results\file.json"
+JSON_FILE = r"tsne_results\tsne_yolo11n-cls_model_model_10_linear.json"
 K_NEIGHBORS = 5 
 CONFLICT_THRESHOLD = 0.6 
 
@@ -104,8 +104,8 @@ def main():
         color_discrete_sequence=large_palette,  # BETTER COLORS
         hover_data=['filename', 'suggestion', 'conflict_score'],
         title=f"Focus Analysis: {sus_count} Errors (Diamonds) vs Context (Faint Circles)",
-        width=1400, 
-        height=1000,
+        width=1500, 
+        height=900,
         template="plotly_white"
     )
 

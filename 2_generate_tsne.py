@@ -4,8 +4,8 @@ import glob
 from util.YoloFeatureExtractor import YoloFeatureExtractor
 
 # --- CONFIGURATION
-MODEL_PATH = r"models\yolo_model.pt"
-DATA_DIR = r"DATASET\dataset_directory"
+MODEL_PATH = r"models\yolo11n-cls.pt"
+DATA_DIR = r"DATASET\example"
 IMAGE_EXTENSIONS = ["*.jpg", "*.jpeg", "*.png", "*.bmp", "*.webp"]
 
 # Paste the layer name you found in yolo_inspect.py here:

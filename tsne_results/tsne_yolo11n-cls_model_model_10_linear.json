@@ -1,0 +1,842 @@
+[
+    {
+        "x": 1.9104762077331543,
+        "y": -3.3928916454315186,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_001.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_001.jpg"
+    },
+    {
+        "x": 5.5458502769470215,
+        "y": -5.508918285369873,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_002.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_002.jpg"
+    },
+    {
+        "x": 3.305349826812744,
+        "y": -3.7888171672821045,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_003.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_003.jpg"
+    },
+    {
+        "x": 5.779439926147461,
+        "y": -5.112377643585205,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_004.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_004.jpg"
+    },
+    {
+        "x": 4.665411949157715,
+        "y": -6.081998825073242,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_005.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_005.jpg"
+    },
+    {
+        "x": 3.9335858821868896,
+        "y": -5.592287063598633,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_006.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_006.jpg"
+    },
+    {
+        "x": 3.5742576122283936,
+        "y": -5.19989013671875,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_007.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_007.jpg"
+    },
+    {
+        "x": 5.346410274505615,
+        "y": -5.2643537521362305,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_008.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_008.jpg"
+    },
+    {
+        "x": 4.267500400543213,
+        "y": -5.597604274749756,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_009.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_009.jpg"
+    },
+    {
+        "x": 3.6516799926757812,
+        "y": -4.610168933868408,
+        "class": "cheeseburger",
+        "filename": "cheeseburger_010.jpg",
+        "path": "DATASET\\example\\cheeseburger\\cheeseburger_010.jpg"
+    },
+    {
+        "x": 2.517245292663574,
+        "y": -7.210644245147705,
+        "class": "corn",
+        "filename": "corn_001.jpg",
+        "path": "DATASET\\example\\corn\\corn_001.jpg"
+    },
+    {
+        "x": -0.9006791114807129,
+        "y": -2.2833287715911865,
+        "class": "corn",
+        "filename": "corn_002.jpg",
+        "path": "DATASET\\example\\corn\\corn_002.jpg"
+    },
+    {
+        "x": -1.313392162322998,
+        "y": -2.676156759262085,
+        "class": "corn",
+        "filename": "corn_003.jpg",
+        "path": "DATASET\\example\\corn\\corn_003.jpg"
+    },
+    {
+        "x": -1.5070130825042725,
+        "y": -4.15748405456543,
+        "class": "corn",
+        "filename": "corn_004.jpg",
+        "path": "DATASET\\example\\corn\\corn_004.jpg"
+    },
+    {
+        "x": -1.7851331233978271,
+        "y": -2.2332968711853027,
+        "class": "corn",
+        "filename": "corn_005.jpg",
+        "path": "DATASET\\example\\corn\\corn_005.jpg"
+    },
+    {
+        "x": -1.4514573812484741,
+        "y": -2.9054181575775146,
+        "class": "corn",
+        "filename": "corn_006.jpg",
+        "path": "DATASET\\example\\corn\\corn_006.jpg"
+    },
+    {
+        "x": -1.138166069984436,
+        "y": -4.0957350730896,
+        "class": "corn",
+        "filename": "corn_007.jpg",
+        "path": "DATASET\\example\\corn\\corn_007.jpg"
+    },
+    {
+        "x": -0.526509702205658,
+        "y": -3.0441598892211914,
+        "class": "corn",
+        "filename": "corn_008.jpg",
+        "path": "DATASET\\example\\corn\\corn_008.jpg"
+    },
+    {
+        "x": -0.8500707149505615,
+        "y": -2.752854824066162,
+        "class": "corn",
+        "filename": "corn_009.jpg",
+        "path": "DATASET\\example\\corn\\corn_009.jpg"
+    },
+    {
+        "x": -2.3391568660736084,
+        "y": -3.2736661434173584,
+        "class": "corn",
+        "filename": "corn_010.jpg",
+        "path": "DATASET\\example\\corn\\corn_010.jpg"
+    },
+    {
+        "x": 8.865585327148438,
+        "y": 3.036285877227783,
+        "class": "flamingo",
+        "filename": "flamingo_001.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_001.jpg"
+    },
+    {
+        "x": 8.703959465026855,
+        "y": 3.4932701587677,
+        "class": "flamingo",
+        "filename": "flamingo_002.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_002.jpg"
+    },
+    {
+        "x": 9.152684211730957,
+        "y": 3.445350408554077,
+        "class": "flamingo",
+        "filename": "flamingo_003.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_003.jpg"
+    },
+    {
+        "x": 8.08208179473877,
+        "y": 3.315507173538208,
+        "class": "flamingo",
+        "filename": "flamingo_004.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_004.jpg"
+    },
+    {
+        "x": 9.624682426452637,
+        "y": 2.263371706008911,
+        "class": "flamingo",
+        "filename": "flamingo_005.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_005.jpg"
+    },
+    {
+        "x": 9.257537841796875,
+        "y": 2.171539783477783,
+        "class": "flamingo",
+        "filename": "flamingo_006.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_006.jpg"
+    },
+    {
+        "x": 9.774375915527344,
+        "y": 2.722623586654663,
+        "class": "flamingo",
+        "filename": "flamingo_007.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_007.jpg"
+    },
+    {
+        "x": 9.344499588012695,
+        "y": 4.003035545349121,
+        "class": "flamingo",
+        "filename": "flamingo_008.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_008.jpg"
+    },
+    {
+        "x": 9.47475814819336,
+        "y": 3.8955259323120117,
+        "class": "flamingo",
+        "filename": "flamingo_009.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_009.jpg"
+    },
+    {
+        "x": 8.000565528869629,
+        "y": 3.722716808319092,
+        "class": "flamingo",
+        "filename": "flamingo_010.jpg",
+        "path": "DATASET\\example\\flamingo\\flamingo_010.jpg"
+    },
+    {
+        "x": 4.655456066131592,
+        "y": 2.588183879852295,
+        "class": "goldfish",
+        "filename": "goldfish_001.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_001.jpg"
+    },
+    {
+        "x": 6.374285697937012,
+        "y": 2.327657699584961,
+        "class": "goldfish",
+        "filename": "goldfish_002.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_002.jpg"
+    },
+    {
+        "x": 5.875950336456299,
+        "y": 1.7650532722473145,
+        "class": "goldfish",
+        "filename": "goldfish_003.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_003.jpg"
+    },
+    {
+        "x": 1.2074649333953857,
+        "y": -1.8743562698364258,
+        "class": "goldfish",
+        "filename": "goldfish_004.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_004.jpg"
+    },
+    {
+        "x": 5.5109124183654785,
+        "y": 1.4081217050552368,
+        "class": "goldfish",
+        "filename": "goldfish_005.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_005.jpg"
+    },
+    {
+        "x": 4.751461029052734,
+        "y": 2.29020357131958,
+        "class": "goldfish",
+        "filename": "goldfish_006.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_006.jpg"
+    },
+    {
+        "x": 5.062530040740967,
+        "y": 1.8815861940383911,
+        "class": "goldfish",
+        "filename": "goldfish_007.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_007.jpg"
+    },
+    {
+        "x": 6.649537086486816,
+        "y": 1.3962271213531494,
+        "class": "goldfish",
+        "filename": "goldfish_008.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_008.jpg"
+    },
+    {
+        "x": 6.19047212600708,
+        "y": 1.3886492252349854,
+        "class": "goldfish",
+        "filename": "goldfish_009.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_009.jpg"
+    },
+    {
+        "x": 6.242011070251465,
+        "y": 0.6681240797042847,
+        "class": "goldfish",
+        "filename": "goldfish_010.jpg",
+        "path": "DATASET\\example\\goldfish\\goldfish_010.jpg"
+    },
+    {
+        "x": 7.901619911193848,
+        "y": 5.566230773925781,
+        "class": "hen",
+        "filename": "hen_001.jpg",
+        "path": "DATASET\\example\\hen\\hen_001.jpg"
+    },
+    {
+        "x": 6.2365570068359375,
+        "y": 5.533675670623779,
+        "class": "hen",
+        "filename": "hen_002.jpg",
+        "path": "DATASET\\example\\hen\\hen_002.jpg"
+    },
+    {
+        "x": 7.395003795623779,
+        "y": 6.140056610107422,
+        "class": "hen",
+        "filename": "hen_003.jpg",
+        "path": "DATASET\\example\\hen\\hen_003.jpg"
+    },
+    {
+        "x": 7.297390460968018,
+        "y": 5.6388983726501465,
+        "class": "hen",
+        "filename": "hen_004.jpg",
+        "path": "DATASET\\example\\hen\\hen_004.jpg"
+    },
+    {
+        "x": 7.208547115325928,
+        "y": 6.54209041595459,
+        "class": "hen",
+        "filename": "hen_005.jpg",
+        "path": "DATASET\\example\\hen\\hen_005.jpg"
+    },
+    {
+        "x": 6.4940972328186035,
+        "y": 5.083385467529297,
+        "class": "hen",
+        "filename": "hen_006.jpg",
+        "path": "DATASET\\example\\hen\\hen_006.jpg"
+    },
+    {
+        "x": 5.466490745544434,
+        "y": 5.313116550445557,
+        "class": "hen",
+        "filename": "hen_007.jpg",
+        "path": "DATASET\\example\\hen\\hen_007.jpg"
+    },
+    {
+        "x": 6.525241374969482,
+        "y": 5.12275505065918,
+        "class": "hen",
+        "filename": "hen_008.jpg",
+        "path": "DATASET\\example\\hen\\hen_008.jpg"
+    },
+    {
+        "x": 7.136265754699707,
+        "y": 4.954046249389648,
+        "class": "hen",
+        "filename": "hen_009.jpg",
+        "path": "DATASET\\example\\hen\\hen_009.jpg"
+    },
+    {
+        "x": 5.862146854400635,
+        "y": 6.414154529571533,
+        "class": "hen",
+        "filename": "hen_010.jpg",
+        "path": "DATASET\\example\\hen\\hen_010.jpg"
+    },
+    {
+        "x": 1.9959027767181396,
+        "y": -4.815832614898682,
+        "class": "hotdog",
+        "filename": "hotdog_001.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_001.jpg"
+    },
+    {
+        "x": 0.9994787573814392,
+        "y": -6.59150505065918,
+        "class": "hotdog",
+        "filename": "hotdog_002.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_002.jpg"
+    },
+    {
+        "x": 2.222386360168457,
+        "y": -6.743842601776123,
+        "class": "hotdog",
+        "filename": "hotdog_003.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_003.jpg"
+    },
+    {
+        "x": 2.2139298915863037,
+        "y": -6.211780548095703,
+        "class": "hotdog",
+        "filename": "hotdog_004.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_004.jpg"
+    },
+    {
+        "x": 2.274538278579712,
+        "y": -6.132809638977051,
+        "class": "hotdog",
+        "filename": "hotdog_005.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_005.jpg"
+    },
+    {
+        "x": 3.9380764961242676,
+        "y": -6.853574275970459,
+        "class": "hotdog",
+        "filename": "hotdog_006.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_006.jpg"
+    },
+    {
+        "x": 1.8525501489639282,
+        "y": -5.579739570617676,
+        "class": "hotdog",
+        "filename": "hotdog_007.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_007.jpg"
+    },
+    {
+        "x": 3.1732964515686035,
+        "y": -6.833669662475586,
+        "class": "hotdog",
+        "filename": "hotdog_008.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_008.jpg"
+    },
+    {
+        "x": 2.7236404418945312,
+        "y": -5.205589294433594,
+        "class": "hotdog",
+        "filename": "hotdog_009.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_009.jpg"
+    },
+    {
+        "x": 1.2690973281860352,
+        "y": -4.788609027862549,
+        "class": "hotdog",
+        "filename": "hotdog_010.jpg",
+        "path": "DATASET\\example\\hotdog\\hotdog_010.jpg"
+    },
+    {
+        "x": -0.864395260810852,
+        "y": 0.840184211730957,
+        "class": "lemon",
+        "filename": "lemon_001.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_001.jpg"
+    },
+    {
+        "x": -1.3857171535491943,
+        "y": 0.8514453768730164,
+        "class": "lemon",
+        "filename": "lemon_002.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_002.jpg"
+    },
+    {
+        "x": -1.2970855236053467,
+        "y": 0.5019888281822205,
+        "class": "lemon",
+        "filename": "lemon_003.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_003.jpg"
+    },
+    {
+        "x": -0.6691635251045227,
+        "y": 1.3463985919952393,
+        "class": "lemon",
+        "filename": "lemon_004.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_004.jpg"
+    },
+    {
+        "x": -0.6382365226745605,
+        "y": 0.13047775626182556,
+        "class": "lemon",
+        "filename": "lemon_005.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_005.jpg"
+    },
+    {
+        "x": 0.044315092265605927,
+        "y": 1.7670027017593384,
+        "class": "lemon",
+        "filename": "lemon_006.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_006.jpg"
+    },
+    {
+        "x": -0.44152823090553284,
+        "y": 1.9997555017471313,
+        "class": "lemon",
+        "filename": "lemon_007.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_007.jpg"
+    },
+    {
+        "x": -0.10157670825719833,
+        "y": -0.17946523427963257,
+        "class": "lemon",
+        "filename": "lemon_008.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_008.jpg"
+    },
+    {
+        "x": 0.2052522599697113,
+        "y": 1.5796122550964355,
+        "class": "lemon",
+        "filename": "lemon_009.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_009.jpg"
+    },
+    {
+        "x": -0.2545594573020935,
+        "y": 0.7223759293556213,
+        "class": "lemon",
+        "filename": "lemon_010.jpg",
+        "path": "DATASET\\example\\lemon\\lemon_010.jpg"
+    },
+    {
+        "x": -5.625590801239014,
+        "y": 0.102475106716156,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_001.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_001.jpg"
+    },
+    {
+        "x": -5.563992500305176,
+        "y": 0.8173043131828308,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_002.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_002.jpg"
+    },
+    {
+        "x": -5.326416015625,
+        "y": 1.5782725811004639,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_003.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_003.jpg"
+    },
+    {
+        "x": -4.463862895965576,
+        "y": 1.3708451986312866,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_004.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_004.jpg"
+    },
+    {
+        "x": -4.299513339996338,
+        "y": -0.7831392884254456,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_005.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_005.jpg"
+    },
+    {
+        "x": -4.940099239349365,
+        "y": 0.10307040810585022,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_006.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_006.jpg"
+    },
+    {
+        "x": -4.649452209472656,
+        "y": 0.18913500010967255,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_007.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_007.jpg"
+    },
+    {
+        "x": -4.58022928237915,
+        "y": -0.5659230947494507,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_008.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_008.jpg"
+    },
+    {
+        "x": -4.264306545257568,
+        "y": -0.0038278051652014256,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_009.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_009.jpg"
+    },
+    {
+        "x": -5.430696487426758,
+        "y": 1.7262458801269531,
+        "class": "rugby_ball",
+        "filename": "rugby_ball_010.jpg",
+        "path": "DATASET\\example\\rugby_ball\\rugby_ball_010.jpg"
+    },
+    {
+        "x": 3.5684945583343506,
+        "y": -1.6738744974136353,
+        "class": "strawberry",
+        "filename": "strawberry_001.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_001.jpg"
+    },
+    {
+        "x": 2.1922967433929443,
+        "y": -0.9062501192092896,
+        "class": "strawberry",
+        "filename": "strawberry_002.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_002.jpg"
+    },
+    {
+        "x": 3.2698986530303955,
+        "y": -1.4623665809631348,
+        "class": "strawberry",
+        "filename": "strawberry_003.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_003.jpg"
+    },
+    {
+        "x": 2.9319097995758057,
+        "y": -0.37726759910583496,
+        "class": "strawberry",
+        "filename": "strawberry_004.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_004.jpg"
+    },
+    {
+        "x": 1.2247487306594849,
+        "y": -0.6075398921966553,
+        "class": "strawberry",
+        "filename": "strawberry_005.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_005.jpg"
+    },
+    {
+        "x": 2.642559051513672,
+        "y": -0.05823375657200813,
+        "class": "strawberry",
+        "filename": "strawberry_006.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_006.jpg"
+    },
+    {
+        "x": 2.5375921726226807,
+        "y": -1.2963597774505615,
+        "class": "strawberry",
+        "filename": "strawberry_007.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_007.jpg"
+    },
+    {
+        "x": 2.4175140857696533,
+        "y": -0.8552474975585938,
+        "class": "strawberry",
+        "filename": "strawberry_008.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_008.jpg"
+    },
+    {
+        "x": 2.0296168327331543,
+        "y": 0.802420973777771,
+        "class": "strawberry",
+        "filename": "strawberry_009.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_009.jpg"
+    },
+    {
+        "x": 1.931786298751831,
+        "y": -0.34577447175979614,
+        "class": "strawberry",
+        "filename": "strawberry_010.jpg",
+        "path": "DATASET\\example\\strawberry\\strawberry_010.jpg"
+    },
+    {
+        "x": -11.300786018371582,
+        "y": 1.53948974609375,
+        "class": "violin",
+        "filename": "violin_001.jpg",
+        "path": "DATASET\\example\\violin\\violin_001.jpg"
+    },
+    {
+        "x": -12.580004692077637,
+        "y": 2.2598836421966553,
+        "class": "violin",
+        "filename": "violin_002.jpg",
+        "path": "DATASET\\example\\violin\\violin_002.jpg"
+    },
+    {
+        "x": -12.661170959472656,
+        "y": 2.7208306789398193,
+        "class": "violin",
+        "filename": "violin_003.jpg",
+        "path": "DATASET\\example\\violin\\violin_003.jpg"
+    },
+    {
+        "x": -11.32194709777832,
+        "y": 2.870511531829834,
+        "class": "violin",
+        "filename": "violin_004.jpg",
+        "path": "DATASET\\example\\violin\\violin_004.jpg"
+    },
+    {
+        "x": -11.956405639648438,
+        "y": 2.5818843841552734,
+        "class": "violin",
+        "filename": "violin_005.jpg",
+        "path": "DATASET\\example\\violin\\violin_005.jpg"
+    },
+    {
+        "x": -11.020862579345703,
+        "y": 2.375891923904419,
+        "class": "violin",
+        "filename": "violin_006.jpg",
+        "path": "DATASET\\example\\violin\\violin_006.jpg"
+    },
+    {
+        "x": -10.793031692504883,
+        "y": 2.444702386856079,
+        "class": "violin",
+        "filename": "violin_007.jpg",
+        "path": "DATASET\\example\\violin\\violin_007.jpg"
+    },
+    {
+        "x": -10.496721267700195,
+        "y": 2.015197992324829,
+        "class": "violin",
+        "filename": "violin_008.jpg",
+        "path": "DATASET\\example\\violin\\violin_008.jpg"
+    },
+    {
+        "x": -10.97606372833252,
+        "y": 2.082397222518921,
+        "class": "violin",
+        "filename": "violin_009.jpg",
+        "path": "DATASET\\example\\violin\\violin_009.jpg"
+    },
+    {
+        "x": -11.696507453918457,
+        "y": 1.3704171180725098,
+        "class": "violin",
+        "filename": "violin_010.jpg",
+        "path": "DATASET\\example\\violin\\violin_010.jpg"
+    },
+    {
+        "x": -8.434112548828125,
+        "y": 0.8275272846221924,
+        "class": "whistle",
+        "filename": "whistle_001.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_001.jpg"
+    },
+    {
+        "x": -10.24431037902832,
+        "y": -1.0825926065444946,
+        "class": "whistle",
+        "filename": "whistle_002.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_002.jpg"
+    },
+    {
+        "x": -9.245163917541504,
+        "y": 0.20093627274036407,
+        "class": "whistle",
+        "filename": "whistle_003.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_003.jpg"
+    },
+    {
+        "x": -8.923381805419922,
+        "y": -1.1104791164398193,
+        "class": "whistle",
+        "filename": "whistle_004.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_004.jpg"
+    },
+    {
+        "x": -9.267887115478516,
+        "y": 0.7662928104400635,
+        "class": "whistle",
+        "filename": "whistle_005.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_005.jpg"
+    },
+    {
+        "x": -8.731355667114258,
+        "y": -1.0626856088638306,
+        "class": "whistle",
+        "filename": "whistle_006.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_006.jpg"
+    },
+    {
+        "x": -9.554394721984863,
+        "y": 0.02114909514784813,
+        "class": "whistle",
+        "filename": "whistle_007.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_007.jpg"
+    },
+    {
+        "x": -8.44816780090332,
+        "y": 0.25494155287742615,
+        "class": "whistle",
+        "filename": "whistle_008.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_008.jpg"
+    },
+    {
+        "x": -9.781274795532227,
+        "y": -0.8115414977073669,
+        "class": "whistle",
+        "filename": "whistle_009.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_009.jpg"
+    },
+    {
+        "x": -9.10865592956543,
+        "y": -0.7314361929893494,
+        "class": "whistle",
+        "filename": "whistle_010.jpg",
+        "path": "DATASET\\example\\whistle\\whistle_010.jpg"
+    },
+    {
+        "x": -8.178995132446289,
+        "y": 3.8770065307617188,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_001.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_001.jpg"
+    },
+    {
+        "x": -8.144770622253418,
+        "y": 3.6239876747131348,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_002.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_002.jpg"
+    },
+    {
+        "x": -7.410894393920898,
+        "y": 4.587914943695068,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_003.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_003.jpg"
+    },
+    {
+        "x": -8.190972328186035,
+        "y": 4.592501163482666,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_004.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_004.jpg"
+    },
+    {
+        "x": -7.994556903839111,
+        "y": 4.78602933883667,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_005.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_005.jpg"
+    },
+    {
+        "x": -6.818073272705078,
+        "y": 4.344504356384277,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_006.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_006.jpg"
+    },
+    {
+        "x": -7.4594950675964355,
+        "y": 3.334329605102539,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_007.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_007.jpg"
+    },
+    {
+        "x": -7.6685051918029785,
+        "y": 3.7885239124298096,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_008.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_008.jpg"
+    },
+    {
+        "x": -6.742225646972656,
+        "y": 3.874471426010132,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_009.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_009.jpg"
+    },
+    {
+        "x": -7.138426780700684,
+        "y": 4.39718770980835,
+        "class": "wine_bottle",
+        "filename": "wine_bottle_010.jpg",
+        "path": "DATASET\\example\\wine_bottle\\wine_bottle_010.jpg"
+    }
+]

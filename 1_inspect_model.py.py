@@ -1,8 +1,10 @@
 import os
 from util.YoloFeatureExtractor import YoloFeatureExtractor
+from ultralytics import YOLO
+
 
 # --- CONFIGURATION
-MODEL_PATH = r"models\yolo_model.pt"
+MODEL_PATH = r"models\yolo11n-cls.pt"
 
 def main():
     print(f"Inspecting Model: {MODEL_PATH}")
