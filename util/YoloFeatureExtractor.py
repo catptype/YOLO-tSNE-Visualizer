@@ -195,3 +195,83 @@ class YoloFeatureExtractor:
         with open(json_path, "w", encoding="utf-8") as f_json:
             json.dump(data_list, f_json, indent=4)
         print(f"Export Complete: {txt_path}")
+    
+    def generate_heatmap(self, image_path: str, layer_name: str, output_dir: str = "heatmap_output"):
+        """
+        Generates a heatmap and SAVES it to disk (No plt.show).
+        """
+        import cv2
+        import numpy as np
+        
+        # 1. Setup Hook
+        activation = {}
+        def get_activation(name):
+            def hook(model, input, output):
+                if isinstance(output, tuple): data = output[0]
+                elif isinstance(output, list): data = output[-1]
+                else: data = output
+                activation[name] = data.detach()
+            return hook
+
+        handle = None
+        for name, module in self.model.named_modules():
+            if name == layer_name:
+                handle = module.register_forward_hook(get_activation(layer_name))
+                break
+        
+        if handle is None:
+            print(f"Layer {layer_name} not found.")
+            return
+
+        # 2. Prepare Image (The "Squash" Step)
+        # We load the image using OpenCV to get exact dimensions
+        img_raw = cv2.imread(image_path)
+        if img_raw is None:
+            print(f"Error: Cannot read {image_path}")
+            return
+            
+        orig_h, orig_w = img_raw.shape[:2]
+
+        # We manually resize to 640x640. 
+        # This distorts the image slightly, but eliminates the black padding bars 
+        # that were causing your alignment issues.
+        input_size = (640, 640)
+        img_resized = cv2.resize(img_raw, input_size)
+
+        # 3. Run Inference on the Resized Image
+        # We pass the numpy array directly to predict()
+        self.model.predict(img_resized, verbose=False, device=self.device)
+        
+        handle.remove()
+
+        if layer_name not in activation:
+            return
+
+        # 4. Process Heatmap
+        feature_map = activation[layer_name].cpu()
+        heatmap = torch.mean(feature_map, dim=1).squeeze().numpy()
+        
+        # Normalize (0 to 1)
+        # heatmap = np.maximum(heatmap, 0)
+        heatmap = np.abs(heatmap)
+        if np.max(heatmap) != 0:
+            heatmap /= np.max(heatmap)
+
+        # 5. Resize Heatmap Back to Original
+        heatmap_final = cv2.resize(heatmap, (orig_w, orig_h))
+
+        # 6. Overlay
+        heatmap_uint8 = np.uint8(255 * heatmap_final)
+        heatmap_color = cv2.applyColorMap(heatmap_uint8, cv2.COLORMAP_JET)
+        
+        # Blend
+        superimposed_img = cv2.addWeighted(img_raw, 0.6, heatmap_color, 0.4, 0)
+
+        # 7. Save
+        os.makedirs(output_dir, exist_ok=True)
+        filename = os.path.basename(image_path)
+        save_name = f"{os.path.splitext(filename)[0]}_{layer_name.replace('.', '_')}.jpg"
+        save_path = os.path.join(output_dir, save_name)
+        
+        cv2.imwrite(save_path, superimposed_img)
+        print(f"Saved: {save_path}")
