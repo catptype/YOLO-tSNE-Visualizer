@@ -167,13 +167,15 @@ class YoloFeatureExtractor:
         # Stack into numpy array
         return torch.stack(final_features).numpy(), valid_paths
 
-    def compute_tsne(self, features: np.ndarray, perplexity: int = 30) -> np.ndarray:
+    def compute_tsne(self, features: np.ndarray, perplexity: int = 30, xyz: bool = False) -> np.ndarray:
         n_samples = features.shape[0]
         if n_samples <= perplexity:
             perplexity = max(1, n_samples - 1)
         
-        print(f"Computing t-SNE on {features.shape}...")
-        tsne = TSNE(n_components=2, perplexity=perplexity, n_iter=1000, random_state=42, n_jobs=-1)
+        n_components = 3 if xyz else 2
+        print(f"Computing t-SNE on {features.shape}... in {n_components}D")
+        
+        tsne = TSNE(n_components=n_components, perplexity=perplexity, n_iter=1000, random_state=42, n_jobs=-1)
         return tsne.fit_transform(features)
 
     def export_data(self, output_name: str, paths: List[str], tsne_results: np.ndarray):
@@ -182,20 +184,54 @@ class YoloFeatureExtractor:
         
         json_path = os.path.join(output_dir, f"{output_name}.json")
         txt_path = os.path.join(output_dir, f"{output_name}.txt")
+
+        # Check dimensions (2 or 3)
+        dims = tsne_results.shape[1]
+
+        # Define dynamic axis names
+        if dims == 2:
+            axis_keys = ['x', 'y']
+        elif dims == 3:
+            axis_keys = ['x', 'y', 'z']
+        else:
+            # Fallback for 4+ dimensions: d0, d1, d2, ...
+            axis_keys = [f"d{i}" for i in range(dims)]
         
         data_list = []
         with open(txt_path, "w", encoding="utf-8") as f_txt:
-            f_txt.write("x|y|class|filename|fullpath\n")
-            for path, (x, y) in zip(paths, tsne_results):
+            # 2. Write Header dynamically
+            # Example: x|y|class|filename... OR x|y|z|class|filename...
+            header = "|".join(axis_keys + ["class", "filename", "fullpath"])
+            f_txt.write(header + "\n")
+            for path, point in zip(paths, tsne_results):
                 class_name = os.path.basename(os.path.dirname(path))
                 filename = os.path.basename(path)
-                entry = {"x": float(x), "y": float(y), "class": class_name, "filename": filename, "path": path}
+                
+                # 3. Build Dictionary
+                entry = {}
+                coord_strings = []
+                
+                # Add coordinates dynamically
+                for i, key in enumerate(axis_keys):
+                    val = float(point[i])
+                    entry[key] = val
+                    coord_strings.append(f"{val:.5f}")
+                
+                # Add metadata
+                entry["class"] = class_name
+                entry["filename"] = filename
+                entry["path"] = path
+                
                 data_list.append(entry)
-                f_txt.write(f"{x:.5f}|{y:.5f}|{class_name}|{filename}|{path}\n")
+                
+                # 4. Write Line to Text File
+                # Join coordinates + metadata with pipe
+                line_data = coord_strings + [class_name, filename, path]
+                f_txt.write("|".join(line_data) + "\n")
                 
         with open(json_path, "w", encoding="utf-8") as f_json:
             json.dump(data_list, f_json, indent=4)
-        print(f"Export Complete: {txt_path}")
+        print(f"Export Complete ({dims}D): {txt_path}")
     
     def generate_heatmap(self, image_path: str, layer_name: str, output_dir: str = "heatmap_output"):
         """
