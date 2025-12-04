@@ -1,3 +1,4 @@
+import cv2
 import os
 import torch
 import json
@@ -200,8 +201,7 @@ class YoloFeatureExtractor:
         """
         Generates a heatmap and SAVES it to disk (No plt.show).
         """
-        import cv2
-        import numpy as np
+        
         
         # 1. Setup Hook
         activation = {}
@@ -251,14 +251,23 @@ class YoloFeatureExtractor:
         feature_map = activation[layer_name].cpu()
         heatmap = torch.mean(feature_map, dim=1).squeeze().numpy()
         
+        # If the heatmap has negative values (inhibition), 
+        # shift everything up so the lowest value starts at 0.
+        min_val = np.min(heatmap)
+        if min_val < 0:
+            heatmap -= min_val
+
         # Normalize (0 to 1)
-        # heatmap = np.maximum(heatmap, 0)
-        heatmap = np.abs(heatmap)
         if np.max(heatmap) != 0:
             heatmap /= np.max(heatmap)
 
         # 5. Resize Heatmap Back to Original
         heatmap_final = cv2.resize(heatmap, (orig_w, orig_h))
+
+        # Dynamic blur based on image width
+        blur_radius = int(orig_w / 25) # Slightly reduced blur for sharper details
+        if blur_radius % 2 == 0: blur_radius += 1
+        heatmap_final = cv2.GaussianBlur(heatmap_final, (blur_radius, blur_radius), 0)
 
         # 6. Overlay
         heatmap_uint8 = np.uint8(255 * heatmap_final)

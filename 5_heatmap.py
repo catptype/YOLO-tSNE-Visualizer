@@ -8,9 +8,6 @@ DATA_DIR = r"DATASET\example"
 IMAGE_EXTENSIONS = ["*.jpg", "*.jpeg", "*.png", "*.bmp", "*.webp"]
 
 def main():
-    # 1. Setup
-    # Ensure you have 'opencv-python' installed: pip install opencv-python
-    
     # 2. Gather Images
     all_images = []
     for ext in IMAGE_EXTENSIONS:
