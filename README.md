@@ -1,8 +1,8 @@
-# 🕵️ YOLO Dataset Auditor & t-SNE Visualizer
+# 🕵️ YOLO Dataset Auditor, t-SNE, and Heatmaps
 
 A powerful toolkit to visualize dataset clusters and automatically detect labeling errors using **Ultralytics YOLO** models (v8, v11, v12).
 
-This tool extracts deep feature vectors from your images, projects them into 2D space using t-SNE, and uses **k-Nearest Neighbors (k-NN)** to identify "Suspicious" data points (e.g., a "Cat" image sitting deep inside a "Dog" cluster).
+This tool extracts deep feature vectors from your images, projects them into 2D space using t-SNE, uses **k-Nearest Neighbors (k-NN)** to identify "Suspicious" data points (e.g., a "Cat" image sitting deep inside a "Dog" cluster), and generates **High-Fidelity Heatmaps** to visualize exactly which pixels the model is looking at.
 
 ---
 
@@ -13,6 +13,7 @@ This tool extracts deep feature vectors from your images, projects them into 2D 
 *   **Robust Caching:** Supports massive datasets (100k+ images). If interrupted, it **resumes exactly where it left off**.
 *   **Ghost Mode Visualization:** A specialized plotting mode that makes clean data transparent and highlights potential errors.
 *   **Actionable Reports:** Generates a CSV list of mislabeled images to fix.
+*   **X-Ray Vision (New! 🔥):** Generates smooth, high-resolution heatmaps. Handles **rectangular images** perfectly (no padding distortion) using smart aspect-ratio alignment.
 
 ---
 
@@ -27,6 +28,7 @@ This tool extracts deep feature vectors from your images, projects them into 2D 
 ├── 2_generate_tsne.py            # Step 2: Extract features & t-SNE
 ├── 3_view_plot.py                # Step 3: Interactive Scatter Plot
 ├── 4_analyze_errors.py           # Step 4: AI Conflict Detection
+├── 5_generate_heatmap.py         # Step 5: X-Ray Vision (Heatmaps)
 │
 ├── models/
 │   └── yolo11n-cls.pt            # (Default) Small classification model
@@ -70,9 +72,17 @@ Different YOLO versions have different architectures. Run this to find the best 
     ```
 3.  **Result:** It identifies the classification vector.
     ```text
+    Inspecting Model: models\yolo11n-cls.pt
+    Model loaded: models\yolo11n-cls.pt on cpu
     ==================== RECOMMENDED LAYERS ====================
-    Layer: model.model.9         | Type: C2PSA      <--- ATTENTION BLOCK
-    Layer: model.model.10.linear | Type: Linear     <--- CLASSIFICATION VECTOR
+    Layer: model.model.2             | Type: C3k2
+    Layer: model.model.4             | Type: C3k2
+    Layer: model.model.6             | Type: C3k2
+    Layer: model.model.8             | Type: C3k2
+    Layer: model.model.9             | Type: C2PSA           <--- ATTENTION BLOCK
+    Layer: model.model.10            | Type: Classify        <--- HEAD
+    Layer: model.model.10.pool       | Type: AdaptiveAvgPool2d <--- PRE-VECTOR POOLING
+    Layer: model.model.10.linear     | Type: Linear          <--- CLASSIFICATION VECTOR
     ============================================================
     ```
     *(Copy `model.model.10.linear` for the next step).*
@@ -130,6 +140,23 @@ Find the wrong labels. This uses k-NN to find images surrounded by the wrong cla
         | `hotdog_006.jpg` | `hotdog` | `Likely: cheeseburger` | `0.8` |
         | `corn_001.jpg` | `corn` | `Likely: hotdog` | `1.0` |
 
+### Step 5: Generate Heatmaps (New! 🔥)
+Visualize **why** the model made a decision. This uses a "Squash-and-Stretch" technique to ensure heatmaps fit **rectangular images** perfectly without padding distortion.
+
+1.  Open `5_generate_heatmap.py`.
+2.  Set target image and model path.
+3.  Choose layers (from step 1).
+4.  Run:
+    ```bash
+    python 5_generate_heatmap.py
+    ```
+
+    | model.model.0 | model.model.2 | model.model.4 | model.model.6 | model.model.8 | model.model.9 |
+    | :--- | :--- | :--- | :--- | :--- | :--- |
+    | ![alt text](heatmap_results/cheeseburger_001_model_model_0.jpg) | ![alt text](heatmap_results/cheeseburger_001_model_model_2.jpg) | ![alt text](heatmap_results/cheeseburger_001_model_model_4.jpg) | ![alt text](heatmap_results/cheeseburger_001_model_model_6.jpg) | ![alt text](heatmap_results/cheeseburger_001_model_model_8.jpg) | ![alt text](heatmap_results/cheeseburger_001_model_model_9.jpg) |
+
+    > *(Note: Layer 2 shows edges, Layer 6 shows shapes/parts, Layer 9 shows final attention).*
+
 ---
 
 ## 🛠️ Configuration & Tips
@@ -144,6 +171,10 @@ Find the wrong labels. This uses k-NN to find images surrounded by the wrong cla
 *   **Perplexity:**
     *   In `2_generate_tsne.py`, set `PERPLEXITY = 30` (default).
     *   For huge datasets, you can try `50`.
+*   **Heatmap Interpretation:**
+    *   **Red:** High Activation (The model "loves" this area).
+    *   **Dark Blue/Black:** Inhibition/Background (The model is actively ignoring or suppressing this area).
+    *   *Note: Our engine automatically shifts negative values so you can see both activation and inhibition.*
 
 ---
 
